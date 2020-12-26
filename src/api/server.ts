@@ -31,6 +31,7 @@ export const startInTestMode = async (): Promise<http.Server> => {
     const server = express();
     const PORT = 4001;
 
+    server.use(bodyParser.json());
     routes(server);
 
     return server.listen(PORT);
