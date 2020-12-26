@@ -1,6 +1,7 @@
 import { Express } from 'express';
 import swaggerUI from 'swagger-ui-express';
-import posts from './posts';
+import getAll from './posts/getAll';
+import getOne from './posts/getOne';
 
 const swaggerDocument = {
   openapi: '3.0.0',
@@ -10,7 +11,8 @@ const swaggerDocument = {
     description: 'API for Simple Blog Application',
   },
   paths: {
-    '/posts': posts,
+    '/posts': getAll,
+    '/posts/{id}': getOne,
   },
 };
 
