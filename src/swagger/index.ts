@@ -1,5 +1,6 @@
 import { Express } from 'express';
 import swaggerUI from 'swagger-ui-express';
+import getAllComments from './posts/getAllComments';
 import getAll from './posts/getAll';
 import getOne from './posts/getOne';
 
@@ -13,6 +14,7 @@ const swaggerDocument = {
   paths: {
     '/posts': getAll,
     '/posts/{id}': getOne,
+    '/posts/{id}/comments': getAllComments,
   },
 };
 
