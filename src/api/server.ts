@@ -6,7 +6,7 @@ import swagger from '../swagger';
 const start = async (): Promise<void> => {
   try {
     const server = express();
-    const PORT = 8000;
+    const PORT = process.env.PORT || 4000;
 
     server.use(express.static('www'));
     server.use(bodyParser.urlencoded({ extended: false }));
