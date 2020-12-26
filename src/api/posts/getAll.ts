@@ -1,8 +1,8 @@
 import { Response, Request } from 'express';
-import controllers from '../../controllers';
+import postsController from '../../controllers/posts';
 
 async function getAll(_: Request, res: Response) {
-  const allPosts = await controllers.posts.getAll();
+  const allPosts = await postsController.getAll();
   return res.send({ data: allPosts });
 }
 

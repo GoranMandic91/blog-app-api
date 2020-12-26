@@ -1,8 +1,8 @@
 import setupRequestTest from '../../__test__/setup';
-import controllers from '../../controllers';
+import postsController from '../../controllers/posts';
 
-jest.mock('../../controllers');
-const getAllPostsMock = controllers.posts.getAll as jest.Mock;
+jest.mock('../../controllers/posts');
+const getAllPostsMock = postsController.getAll as jest.Mock;
 
 const { request } = setupRequestTest();
 
