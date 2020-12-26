@@ -7,6 +7,7 @@ const routes = (server: Express) => {
   server.get('/posts/:id', posts.getOne);
   server.get('/posts/:id/comments', posts.getAllComments);
   server.put('/comments/:id', comments.editOne);
+  server.post('/comments', comments.create);
 };
 
 export default routes;
