@@ -3,7 +3,7 @@ import swaggerUI from 'swagger-ui-express';
 import getAllComments from './posts/getAllComments';
 import getAll from './posts/getAll';
 import getOne from './posts/getOne';
-import editOne from './comments/editOne';
+import edit from './comments/edit';
 import create from './comments/create';
 
 const swaggerDocument = {
@@ -17,7 +17,7 @@ const swaggerDocument = {
     '/posts': getAll,
     '/posts/{id}': getOne,
     '/posts/{id}/comments': getAllComments,
-    '/comments/{id}': editOne,
+    '/comments/{id}': edit,
     '/comments': create,
   },
 };

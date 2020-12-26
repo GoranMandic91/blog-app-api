@@ -1,4 +1,4 @@
-const editOne = {
+const edit = {
   put: {
     tags: ['comments'],
     description: 'Update single comment',
@@ -43,4 +43,4 @@ const editOne = {
   },
 };
 
-export default editOne;
+export default edit;

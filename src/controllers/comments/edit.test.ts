@@ -1,8 +1,8 @@
-import editOne from './editOne';
+import edit from './edit';
 
-describe('getOne', () => {
+describe('get', () => {
   it('update comment by given id', async () => {
-    const comment = await editOne(1, 'update name', 'update text');
+    const comment = await edit(1, 'update name', 'update text');
 
     expect(comment).toBeDefined();
     expect(comment.id).toEqual(1);
@@ -12,7 +12,7 @@ describe('getOne', () => {
 
   it('throws not-found error if not exist', async () => {
     try {
-      await editOne(0, 'update name', 'update text');
+      await edit(0, 'update name', 'update text');
       expect(true).toBeFalsy();
     } catch (error) {
       expect(error).toBeInstanceOf(Error);

@@ -6,7 +6,7 @@ async function editOne(req: Request, res: Response) {
     const { id } = req.params;
     const { text, name } = req.body;
 
-    const comment = await commentsController.editOne(+id, name, text);
+    const comment = await commentsController.edit(+id, name, text);
     return res.send({ data: comment });
   } catch (error) {
     if (error.message === 'not-found') {

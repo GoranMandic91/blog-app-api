@@ -2,7 +2,7 @@ import setupRequestTest from '../../__test__/setup';
 import commentsController from '../../controllers/comments';
 
 jest.mock('../../controllers/comments');
-const editOneMock = commentsController.editOne as jest.Mock;
+const editMock = commentsController.edit as jest.Mock;
 
 const { request } = setupRequestTest();
 
@@ -15,7 +15,7 @@ describe('PUT /comments/:id', () => {
   };
 
   it('returns updated comment by id', async () => {
-    editOneMock.mockResolvedValueOnce(commentMock);
+    editMock.mockResolvedValueOnce(commentMock);
 
     await request()
       .put('/comments/1')
@@ -27,7 +27,7 @@ describe('PUT /comments/:id', () => {
   });
 
   it('thows 404 if comment not exists', async () => {
-    editOneMock.mockRejectedValueOnce(new Error('not-found'));
+    editMock.mockRejectedValueOnce(new Error('not-found'));
 
     await request()
       .put('/comments/1')
@@ -39,7 +39,7 @@ describe('PUT /comments/:id', () => {
   });
 
   it('thows 500 if internal server error occurs', async () => {
-    editOneMock.mockRejectedValueOnce(new Error());
+    editMock.mockRejectedValueOnce(new Error());
 
     await request()
       .put('/comments/1')

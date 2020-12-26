@@ -1,8 +1,8 @@
-import editOne from './editOne';
+import edit from './edit';
 import create from './create';
 
 const comments = {
-  editOne,
+  edit,
   create,
 };
 

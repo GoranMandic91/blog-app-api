@@ -1,10 +1,10 @@
 import create from './create';
 import getAll from './getAll';
-import editOne from './editOne';
+import edit from './edit';
 
 const comments = {
   getAll,
-  editOne,
+  edit,
   create,
 };
 

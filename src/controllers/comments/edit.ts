@@ -1,7 +1,7 @@
 import { Comment } from '../../entities/comment';
 import comments from '../../mocks/comments';
 
-async function editOne(id: number, name: string, text: string): Promise<Comment> {
+async function edit(id: number, name: string, text: string): Promise<Comment> {
   const comment = comments.find((p) => p.id === id);
   if (!comment) {
     throw new Error('not-found');
@@ -13,4 +13,4 @@ async function editOne(id: number, name: string, text: string): Promise<Comment>
   return comment;
 }
 
-export default editOne;
+export default edit;
