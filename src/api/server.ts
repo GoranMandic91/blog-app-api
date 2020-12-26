@@ -1,9 +1,10 @@
 import express from 'express';
 import bodyParser from 'body-parser';
+import http from 'http';
 import routes from './routes';
 import swagger from '../swagger';
 
-const start = async (): Promise<void> => {
+const start = async (): Promise<http.Server> => {
   try {
     const server = express();
     const PORT = process.env.PORT || 4000;
@@ -15,12 +16,26 @@ const start = async (): Promise<void> => {
     routes(server);
     swagger(server);
 
-    server.listen(PORT, () => {
+    return server.listen(PORT, () => {
       console.log(`⚡️[server]: Server is running at http://localhost:${PORT}`);
       console.log(`⚡️[server]: Swagger docs available at http://localhost:${PORT}/docs`);
     });
   } catch (err) {
     console.error(`Error starting server: ${err.message}`);
+    throw err;
+  }
+};
+
+export const startInTestMode = async (): Promise<http.Server> => {
+  try {
+    const server = express();
+    const PORT = 4001;
+
+    routes(server);
+
+    return server.listen(PORT);
+  } catch (err) {
+    console.error(`Error starting test server: ${err.message}`);
     throw err;
   }
 };

@@ -10,19 +10,6 @@ const swaggerDocument = {
     description: 'API for Simple Blog Application',
   },
   paths: {
-    '/health': {
-      get: {
-        tags: ['health'],
-        description: 'Get API health status',
-        produces: ['aplication/json'],
-        responses: {
-          200: {
-            description: 'OK',
-            content: {},
-          },
-        },
-      },
-    },
     '/posts': posts,
   },
 };
