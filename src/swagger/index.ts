@@ -1,5 +1,6 @@
 import { Express } from 'express';
 import swaggerUI from 'swagger-ui-express';
+import posts from './posts';
 
 const swaggerDocument = {
   openapi: '3.0.0',
@@ -22,6 +23,7 @@ const swaggerDocument = {
         },
       },
     },
+    '/posts': posts,
   },
 };
 
