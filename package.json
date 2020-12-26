@@ -1,0 +1,19 @@
+{
+  "name": "blog-app-api",
+  "version": "0.0.1",
+  "description": "Server for simple blog application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GoranMandic91/blog-app-api.git"
+  },
+  "author": "Goran Mandic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GoranMandic91/blog-app-api/issues"
+  },
+  "homepage": "https://github.com/GoranMandic91/blog-app-api#readme"
+}
