@@ -1,4 +1,3 @@
-
 import { Express } from 'express';
 import swaggerUI from 'swagger-ui-express';
 
@@ -20,12 +19,11 @@ const swaggerDocument = {
             description: 'OK',
             content: {},
           },
-        }
-      }
-    }
-  }
-}
-
+        },
+      },
+    },
+  },
+};
 
 const swagger = (server: Express) => {
   const options = {
@@ -39,7 +37,6 @@ const swagger = (server: Express) => {
   };
 
   server.use('/docs', swaggerUI.serve, swaggerUI.setup(swaggerDocument, options));
-}
+};
 
 export default swagger;
-

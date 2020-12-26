@@ -1,4 +1,4 @@
-import { start } from './api/server';
+import start from './api/server';
 
 process.on('uncaughtException', (error: Error) => {
   console.error(`uncaughtException ${error.message}`);
