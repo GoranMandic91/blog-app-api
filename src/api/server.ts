@@ -1,6 +1,7 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
+import cors from 'cors';
 import routes from './routes';
 import swagger from '../swagger';
 
@@ -12,6 +13,7 @@ const start = async (): Promise<http.Server> => {
     server.use(express.static('www'));
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
+    server.use(cors());
 
     routes(server);
     swagger(server);

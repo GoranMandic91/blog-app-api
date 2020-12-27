@@ -6,8 +6,8 @@ describe('getOne', () => {
 
     expect(post).toBeDefined();
     expect(post.id).toEqual(1);
-    expect(post.title).toEqual('Blog Post Title 1');
-    expect(post.content).toEqual('Lorem Impsum 1');
+    expect(post.title).toEqual('What is Lorem Ipsum?');
+    expect(post.content.length).toEqual(572);
   });
 
   it('throws not-found error if not exist', async () => {
