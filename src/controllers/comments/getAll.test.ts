@@ -13,10 +13,10 @@ describe('getAll', () => {
     expect(allComments[0].id).toEqual(1);
 
     expect(allComments[0]).toHaveProperty('name');
-    expect(allComments[0].name).toEqual('Blog Post name 1');
+    expect(allComments[0].name).toEqual('Dummy text');
 
     expect(allComments[0]).toHaveProperty('text');
-    expect(allComments[0].text).toEqual('Comment Lorem Impsum 1');
+    expect(allComments[0].text).toEqual('A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available');
   });
 
   it('returns empty array if there is no comments', async () => {
