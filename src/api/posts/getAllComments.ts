@@ -7,6 +7,9 @@ async function getAllComments(req: Request, res: Response): Promise<Response> {
     const allComments = await commentsController.getAll(+id);
     return res.send({ data: allComments });
   } catch (error) {
+    if (error.message === 'not-found') {
+      return res.status(404).send({ message: 'Post not found!' });
+    }
     return res.status(500).send({ message: 'Internal server error!' });
   }
 }

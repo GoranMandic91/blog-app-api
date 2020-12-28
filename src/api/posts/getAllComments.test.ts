@@ -29,6 +29,14 @@ describe('GET /posts/{id}/comments', () => {
     expect(getAllCommentsMock).toBeCalledWith(1);
   });
 
+  it('thows 404 if post not exist', async () => {
+    getAllCommentsMock.mockRejectedValueOnce(new Error('not-found'));
+
+    await request()
+      .get('/posts/0/comments')
+      .expect(404, { message: 'Post not found!' });
+  });
+
   it('thows 500 if internal server error occurs', async () => {
     getAllCommentsMock.mockRejectedValueOnce(new Error());
 

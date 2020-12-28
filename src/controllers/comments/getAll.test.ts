@@ -19,6 +19,16 @@ describe('getAll', () => {
     expect(allComments[0].text).toEqual('A quick and simplified answer is that Lorem Ipsum refers to text that the DTP (Desktop Publishing) industry use as replacement text when the real text is not available');
   });
 
+  it('throws not-found error if post not exist', async () => {
+    try {
+      await getAll(10);
+      expect(true).toBeFalsy();
+    } catch (error) {
+      expect(error).toBeInstanceOf(Error);
+      expect(error.message).toEqual('not-found');
+    }
+  });
+
   it('returns empty array if there is no comments', async () => {
     const allComments = await getAll(4);
 

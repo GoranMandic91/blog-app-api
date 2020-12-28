@@ -15,7 +15,7 @@ const start = async (): Promise<http.Server> => {
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
     server.use(cors());
-    server.use(morgan('common'));
+    server.use(morgan('[:date[clf]] ":method::url" :status :res[content-length] - :response-time ms'));
 
     routes(server);
     swagger(server);
