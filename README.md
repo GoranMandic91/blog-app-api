@@ -1,8 +1,18 @@
 # blog-app-api
 
 Server for blog application
+### Tech stack:
+- Node.js (v12)
+- Express + TypeScript 
+- Jest
+- Swagger
 
-
+### Install & run 
+-   Clone repo: `git clone git@github.com:GoranMandic91/blog-app-api.git`
+-   Install dependencies: `cd blog-app-api && npm install`
+-   Start dev environment `npm run start:dev`
+-   Run tests: `npm run test`
+  
  ### Run it inside Docker 
   - build docker image
   ```console
