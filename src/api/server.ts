@@ -2,6 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import http from 'http';
 import cors from 'cors';
+import morgan from 'morgan';
 import routes from './routes';
 import swagger from '../swagger';
 
@@ -14,6 +15,7 @@ const start = async (): Promise<http.Server> => {
     server.use(bodyParser.urlencoded({ extended: false }));
     server.use(bodyParser.json());
     server.use(cors());
+    server.use(morgan('common'));
 
     routes(server);
     swagger(server);
