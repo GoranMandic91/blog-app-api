@@ -25,5 +25,15 @@ describe('GET /posts/{id}/comments', () => {
     await request()
       .get('/posts/1/comments')
       .expect(200, { data: commentsMock });
+
+    expect(getAllCommentsMock).toBeCalledWith(1);
+  });
+
+  it('thows 500 if internal server error occurs', async () => {
+    getAllCommentsMock.mockRejectedValueOnce(new Error());
+
+    await request()
+      .get('/posts/1/comments')
+      .expect(500, { message: 'Internal server error!' });
   });
 });

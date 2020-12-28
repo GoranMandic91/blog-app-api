@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
 import postsController from '../../controllers/posts';
 
-async function getOne(req: Request, res: Response) {
+async function getOne(req: Request, res: Response): Promise<Response> {
   try {
     const { id } = req.params;
     const post = await postsController.getOne(+id);

@@ -31,6 +31,8 @@ describe('GET /posts/:id', () => {
     await request()
       .get('/posts/1')
       .expect(200, { data: postMock });
+
+    expect(getAllOneMock).toBeCalledWith(1);
   });
 
   it('thows 404 if post not exists', async () => {
@@ -41,7 +43,7 @@ describe('GET /posts/:id', () => {
       .expect(404, { message: 'Post not found!' });
   });
 
-  it('thows 404 if post not exists', async () => {
+  it('thows 500 if internal server error occurs', async () => {
     getAllOneMock.mockRejectedValueOnce(new Error());
 
     await request()

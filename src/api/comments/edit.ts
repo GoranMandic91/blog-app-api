@@ -1,11 +1,10 @@
 import { Response, Request } from 'express';
 import commentsController from '../../controllers/comments';
 
-async function editOne(req: Request, res: Response) {
+async function editOne(req: Request, res: Response): Promise<Response> {
   try {
     const { id } = req.params;
     const { text, name } = req.body;
-
     const comment = await commentsController.edit(+id, name, text);
     return res.send({ data: comment });
   } catch (error) {

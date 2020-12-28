@@ -24,6 +24,8 @@ describe('PUT /comments/:id', () => {
         text: 'updated text',
       })
       .expect(200, { data: commentMock });
+
+    expect(editMock).toBeCalledWith(1, 'updated name', 'updated text');
   });
 
   it('thows 404 if comment not exists', async () => {

@@ -25,6 +25,22 @@ describe('POST /comments', () => {
         text: 'new text',
       })
       .expect(201, { data: commentMock });
+
+    expect(createMock).toBeCalledWith(1, 'new name', 'new text');
+  });
+
+  it('returns newly created comment without name', async () => {
+    createMock.mockResolvedValueOnce({ ...commentMock, name: '' });
+
+    await request()
+      .post('/comments')
+      .send({
+        postId: 1,
+        text: 'new text',
+      })
+      .expect(201, { data: { ...commentMock, name: '' } });
+
+    expect(createMock).toBeCalledWith(1, '', 'new text');
   });
 
   it('thows 400 if postId not in request body', async () => {
@@ -58,6 +74,8 @@ describe('POST /comments', () => {
         text: 'new text',
       })
       .expect(404, { message: 'Post not found!' });
+
+    expect(createMock).toBeCalledWith(1, 'new name', 'new text');
   });
 
   it('thows 500 if internal server error occurs', async () => {

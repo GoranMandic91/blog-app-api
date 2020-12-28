@@ -26,4 +26,12 @@ describe('GET /posts', () => {
       .get('/posts')
       .expect(200, { data: postsMock });
   });
+
+  it('thows 500 if internal server error occurs', async () => {
+    getAllPostsMock.mockRejectedValueOnce(new Error());
+
+    await request()
+      .get('/posts')
+      .expect(500, { message: 'Internal server error!' });
+  });
 });

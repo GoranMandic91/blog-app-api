@@ -1,7 +1,7 @@
 import { Response, Request } from 'express';
 import commentsController from '../../controllers/comments';
 
-async function create(req: Request, res: Response) {
+async function create(req: Request, res: Response): Promise<Response> {
   try {
     const { postId, text, name } = req.body;
     if (!postId || !text) {
