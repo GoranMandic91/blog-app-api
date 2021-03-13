@@ -38,6 +38,7 @@ npm run test
 docker build -t blog-app-api .
 ```
 
+
 - Run docker container
 ```console
 docker start blog-api 2>/dev/null || \
