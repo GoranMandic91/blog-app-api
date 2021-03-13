@@ -48,6 +48,8 @@ docker run --name blog-api \
   -d blog-app-api:latest
 ```
 
+
+
 - Documentation available on: `http://localhost:4000/docs`
 
 - Run a command in a running container
